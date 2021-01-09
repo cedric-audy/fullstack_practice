@@ -10,10 +10,6 @@ interface menuState {
 }
 
 export const Menu: FC<menuProps> = () => {
-  
-    const theme =  {
-        spacing:1,
-    }
     return (
         <div className="menu">
         <Button variant="contained">
