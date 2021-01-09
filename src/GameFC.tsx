@@ -1,6 +1,8 @@
 import {FC, useState} from 'react';
 import { Board } from './BoardFC';
 import { calculateWinner } from './calculateWinner';
+import { Button } from '@material-ui/core';
+
 
 interface GameProps {
 
@@ -27,11 +29,10 @@ export const Game: FC<GameProps> = (props) => {
       'Go to game start';
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
+        <Button variant="outlined" onClick={() => jumpTo(move)}>{desc}</Button>
       </li>
     );
   });
-
 
   const handleClick = (i: number) => {
     const history = state.history.slice(0, state.stepNumber + 1);
@@ -81,9 +82,8 @@ export const Game: FC<GameProps> = (props) => {
       </div>
       <div className="game-info">
         <div>{status}</div>
-        <ol>{moves}</ol>
+        <ol>{moves}</ol>``
       </div>
     </div>
-
   );
 }

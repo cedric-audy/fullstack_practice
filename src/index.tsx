@@ -1,11 +1,13 @@
-import { MouseEventHandler, FC, useCallback, useState } from 'react';
 import ReactDOM from 'react-dom';
-
+import { Menu } from './menu'
 import { Game } from './GameFC'
 import './index.css';
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
 
+ReactDOM.render(
+<div className={"display"}>
+<Menu />
+<Game />
+</div>,
+document.getElementById('root')
+);

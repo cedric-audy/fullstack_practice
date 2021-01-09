@@ -3,6 +3,13 @@ body {
   margin: 20px;
 }
 
+.display
+{
+  display: flex;
+  flex-direction: row;
+  margin:auto;
+}
+
 ol, ul {
   padding-left: 30px;
 }
@@ -40,8 +47,17 @@ ol, ul {
   background: #ddd;
 }
 
+.menu{
+  display:flex;
+  margin:auto;
+  flex-direction:column;
+  flex:1;
+}
+
 .game {
+  flex:5;
   display: flex;
+  margin:auto;
   flex-direction: row;
 }
 
