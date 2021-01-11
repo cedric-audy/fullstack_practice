@@ -3,6 +3,12 @@ import { Menu } from './menu';
 import { Game } from './GameFC';
 import { Core } from 'cae-storybook/dist/core';
 import { Header, SideMenuItemGroup, SideMenu } from 'cae-storybook/dist/widget';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
 import './index.css';
 
 const sideMenuItemGroups: SideMenuItemGroup[] = [
@@ -26,22 +32,37 @@ const sideMenuItemGroups: SideMenuItemGroup[] = [
 ];
 
 ReactDOM.render(
-<div>
-<Core header={<Header appName="React intro"></Header>}
-            sideMenu={
-                <SideMenu
-                    menuTitle="Bonjour,"
-                    menuSubTitle="Noob"
-                    sideMenuItemGroups={sideMenuItemGroups}
-                  //  history={history}
-                />
-            }>
-<Game />
-</Core>
-<div className={"display"}>
-<Menu />
-<Game />
-</div>
-</div>,
-document.getElementById('root')
+
+    <Router>
+        <Route path="/aaa">
+            <Home />
+        </Route>
+        <Route path='/bbb'>
+            <div>
+                <Core header={<Header appName="React intro"></Header>}
+                    sideMenu={
+                        <SideMenu
+                            menuTitle="Bonjour,"
+                            menuSubTitle="Noob"
+                            sideMenuItemGroups={sideMenuItemGroups}
+                        //  history={history}
+                        />
+                    }>
+                    <Game />
+                </Core>
+                <div className={"display"}>
+                    <Menu />
+                    <Game />
+                    <Switch>
+                    </Switch>
+                </div>
+            </div>
+
+        </Route>
+    </Router>,
+    document.getElementById('root')
 );
+
+function Home() {
+    return <h2>AAAAAAAAAAAAAAAAAAA</h2>;
+}
