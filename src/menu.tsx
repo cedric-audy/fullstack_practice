@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Button } from '@material-ui/core';
+import { Button } from 'cae-storybook/dist/lib';
+
 
 interface menuProps {
 
@@ -11,11 +12,12 @@ interface menuState {
 
 export const Menu: FC<menuProps> = () => {
     return (
+        
         <div className="menu">
-        <Button variant="contained">
+        <Button>
                 aaaaa
         </Button>
-        <Button variant="contained">
+        <Button>
                 sfsdfsdf
         </Button>
         </div>
