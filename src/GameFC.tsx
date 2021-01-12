@@ -1,11 +1,12 @@
 import {FC, useState} from 'react';
 import { Board } from './BoardFC';
 import { calculateWinner } from './calculateWinner';
+import { MuiTheme, makeStyles } from 'cae-storybook/dist/theme';
 import { Button } from '@material-ui/core';
 
-
 interface GameProps {
-
+  color: "secondary" | "primary";
+  squareColor: "secondary" | "primary" | "default";
 }
 
 interface GameState {
@@ -14,7 +15,15 @@ interface GameState {
   xIsNext: boolean,
 }
 
-export const Game: FC<GameProps> = (props) => {
+const useStyles = makeStyles<MuiTheme>(Theme => ({
+  game: {
+    padding: Theme.spacing(5),
+    display: "flex",
+    flexWrap: "wrap"
+  }
+}))
+
+export const Game: FC<GameProps> = (props: GameProps) => {
   const [state, setState] = useState<GameState>({
     history: [{
       squares: Array(9).fill(null),
@@ -22,6 +31,9 @@ export const Game: FC<GameProps> = (props) => {
     stepNumber: 0,
     xIsNext: true,
   });
+
+  useStyles()
+
   const current = state.history[state.stepNumber]
   const moves = state.history.map((step, move) => {
     const desc = move ?
@@ -76,6 +88,8 @@ export const Game: FC<GameProps> = (props) => {
     <div className="game">
       <div className="game-board">
         <Board
+
+          squareColor={props.squareColor}
           squares={current.squares}
           onClick={(i: number) => handleClick(i)}
         />

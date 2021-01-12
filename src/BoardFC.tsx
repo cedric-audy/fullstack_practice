@@ -2,15 +2,17 @@ import {FC} from 'react';
 import { Square } from './square';
 
 interface BoardProps {
+    squareColor: string,
     squares: number[],
     onClick: Function
   }
   
-export const Board: FC<BoardProps> = (props) => {
+export const Board: FC<BoardProps> = (props: BoardProps) => {
   
     const renderSquare = (i: number) => {
       return (
         <Square
+          color={props.squareColor}
           value={props.squares[i]}
           onClick={() => props.onClick(i)}
         />

@@ -31,38 +31,35 @@ const sideMenuItemGroups: SideMenuItemGroup[] = [
     }
 ];
 
-ReactDOM.render(
-
-    <Router>
-        <Route path="/aaa">
-            <Home />
-        </Route>
-        <Route path='/bbb'>
-            <div>
-                <Core header={<Header appName="React intro"></Header>}
-                    sideMenu={
-                        <SideMenu
-                            menuTitle="Bonjour,"
-                            menuSubTitle="Noob"
-                            sideMenuItemGroups={sideMenuItemGroups}
-                        //  history={history}
-                        />
-                    }>
-                    <Game />
-                </Core>
-                <div className={"display"}>
-                    <Menu />
-                    <Game />
-                    <Switch>
-                    </Switch>
-                </div>
-            </div>
-
-        </Route>
-    </Router>,
-    document.getElementById('root')
-);
-
 function Home() {
     return <h2>AAAAAAAAAAAAAAAAAAA</h2>;
 }
+
+ReactDOM.render(
+    <div>
+        <Core header={<Header appName="React intro"></Header>}
+            sideMenu={
+                <SideMenu
+                    menuTitle="Bonjour,"
+                    menuSubTitle="Noob"
+                    sideMenuItemGroups={sideMenuItemGroups}
+                //  history={history}
+                />
+            }>
+            <div className={"display"}>
+                <Menu />
+                <Router>
+                    <Switch>
+                    <Route path='/'>
+                        <Game color="secondary" squareColor="secondary" />
+                    </Route>
+                    <Route path="/bbb">
+                        <Game color="primary" squareColor="primary" />
+                    </Route>
+                </Switch>
+                </Router>
+            </div>
+        </Core>
+    </div>,
+    document.getElementById('root')
+);
